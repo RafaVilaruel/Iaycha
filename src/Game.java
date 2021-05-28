@@ -1,8 +1,31 @@
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-public class Game {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
-	Scanner myScanner = new Scanner(System.in);
+public class Game {
+	
+	public JFrame window;
+	public Container container;
+	public JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel;
+	public JLabel titleNameLabel;
+	public Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+	public Font normalFont = new Font ("Times New Roman", Font.PLAIN, 30);
+	public JButton startButton;
+	public JTextArea mainTextArea;
+	
+	TitleScreenHandler tsHandler = new TitleScreenHandler();	
+	
+	
+	/* Scanner myScanner = new Scanner(System.in);
 	Scanner enterScanner = new Scanner(System.in);
 	int playerHP;
 	String playerName;
@@ -11,18 +34,86 @@ public class Game {
 	int monsterHP;
 
 	int dragonRing;
-	boolean goblinIsDead = false;
+	boolean goblinIsDead = false; */
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
+		
+		new Game();
+		
+		//Game newGame();
+		//newAdventure = new Game();
 
-		Game newAdventure;
-		newAdventure = new Game();
-
-		newAdventure.playerSetUp();
-		newAdventure.townGate();
+		//newAdventure.playerSetUp();
+		//newAdventure.townGate();
+	}
+	
+	public Game() {
+		window = new JFrame();
+		window.setSize(800, 600);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().setBackground(Color.black);
+		window.setLayout(null);
+		
+		//window.setResizable(false);		
+		container = window.getContentPane();
+		
+		titleNamePanel = new JPanel();
+		titleNamePanel.setBounds(100, 100, 600, 150);
+		titleNamePanel.setBackground(Color.black);
+		titleNameLabel = new JLabel("ADVENTURE");
+		titleNameLabel.setForeground(Color.white);
+		titleNameLabel.setFont(titleFont);
+		
+		startButtonPanel = new JPanel();
+		startButtonPanel.setBounds(300, 400, 200, 100);
+		startButtonPanel.setBackground(Color.black);
+		
+		startButton = new JButton("START");
+		startButton.setBackground(Color.black);
+		startButton.setForeground(Color.white);
+		startButton.setFont(normalFont);
+		startButton.setFocusPainted(false);
+		startButton.addActionListener(tsHandler);
+		
+		titleNamePanel.add(titleNameLabel);
+		startButtonPanel.add(startButton);
+		
+		container.add(titleNamePanel);
+		container.add(startButtonPanel);
+		window.setVisible(true);
 	}
 
-	public void playerSetUp() {
+	public void createGameScreen() {
+		
+		titleNamePanel.setVisible(false);
+		startButtonPanel.setVisible(false);
+				
+		mainTextPanel = new JPanel();
+		mainTextPanel.setBounds(100, 100, 600, 250);
+		mainTextPanel.setBackground(Color.blue);
+		container.add(mainTextPanel);
+		
+		mainTextArea = new JTextArea("THIS IS ASS");
+		mainTextArea.setBounds(100, 100, 600, 250);
+		mainTextArea.setBackground(Color.black);
+		mainTextArea.setForeground(Color.white);
+		mainTextArea.setFont(normalFont);
+		mainTextArea.setLineWrap(true);
+		mainTextPanel.add(mainTextArea);	
+	
+	}
+	
+	public class TitleScreenHandler implements ActionListener{
+		
+		public void actionPerformed(ActionEvent event) {
+			
+			createGameScreen();
+		}
+	}
+	
+	
+	
+	/* public void playerSetUp() {
 
 		playerHP = 10;
 		monsterHP = 15;
@@ -160,9 +251,9 @@ public class Game {
 		}		
 		else {
 			System.out.println("\n------------------------------------------------------------------\n");
-			System.out.println("Você olha ao redor e vê apenas destruição, causada pela tua feroz batalha com o Goblin.\n");
-			System.out.println("\n------------------------------------------------------------------\n");
-			System.out.println("\n\n1: Voltar para a Encruzilhada");
+			System.out.println("Você olha ao redor e vê apenas destruição, causada pela tua feroz batalha com o Goblin.");
+			System.out.println("------------------------------------------------------------------\n");
+			System.out.println("\n1: Voltar para a Encruzilhada");
 			
 			choice = myScanner.nextInt();
 
@@ -244,8 +335,9 @@ public class Game {
 		System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("Você matou o monstro!");
 		System.out.println("O monstro virou cinzas. Só restou um anel cinza e dourado caído no chão, com a face de um dragão.");
-		System.out.println("Você obteve o ANEL DO DRAGÃO!\n\n");
-		System.out.println("1: Ir para o LESTE");
+		System.out.println("Você se abaixa e guarda o Anel em teu bolso.");
+		System.out.println("**Você obteve o ANEL DO DRAGÃO!**\n\n");
+		System.out.println("1: Voltar para a encruzilhada");
 		System.out.println("\n------------------------------------------------------------------\n");
 
 		dragonRing = 1;
@@ -262,9 +354,10 @@ public class Game {
 
 	public void ending() {
 		System.out.println("\n------------------------------------------------------------------\n");
-		System.out.println("Guard: Sério? Você matou o Goblin que tanto nos atormentava?");
-		System.out.println("Guard: Você realmente é alguém que eu posso confiar. Seja bem-vindo à cidade!");
+		System.out.println("Guarda: Sério? Você matou o Goblin que tanto nos atormentava? Prove.");
+		System.out.println("Guarda: ...Esse é o lendário Anel do Dragão!!! Você matou o Goblin mesmo!");
+		System.out.println("Guarda: Você realmente é alguém que podemos confiar. Seja bem-vindo à cidade!");
 		System.out.println("\n\n             FIM                    ");
 		System.out.println("\n------------------------------------------------------------------\n");
-	}
+	} */
 }
