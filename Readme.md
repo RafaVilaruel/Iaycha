@@ -1,1 +1,0 @@
-Jogo de aventura feito em JAVA! Boa diversão.
