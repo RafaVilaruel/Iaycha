@@ -8,4 +8,7 @@ Iaycha é um jogo de aventura, com uma história 100% original criada por mim. T
 
 O jogo conta com mais de 20 personagens originais, músicas, ambientação, sistema de SAVE/ LOAD e uma engine pronta para receber atualizações/continuações no futuro =)
 
-Você pode baixar o .RAR do jogo neste link: http://rafaelvilaruelsportfolio.000webhostapp.com/blog/iaycha_pt-br.html 
+Você pode baixar o .RAR do jogo completo neste link: http://rafaelvilaruelsportfolio.000webhostapp.com/blog/iaycha_pt-br.html 
+
+<h2>Git Clone</h2>
+Ao clonar o projeto, o GIT não irá fazer o download dos arquivos .EXE. Baixe os individualmente.
